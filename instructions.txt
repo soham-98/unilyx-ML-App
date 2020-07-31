@@ -1,0 +1,20 @@
+
+Unilyx
+Created by Soham Kulkarni
+
+
+
+Setup procedure(one time):
+
+Place the list of requirements(requirement.txt) and the script(unilyx.py) in your user directory.
+install required libraries by opening anaconda/cmd prompt and run the following command:     pip install -r requirements.txt
+
+
+
+Launch:
+
+Once all the required libraries are installed, run the following command on anaconda/cmd prompt:    
+streamlit run unilyx.py
+
+Alternatevly, you can directly fetch the script from github to launch the app, try running the following command on anaconda/cmd prompt:
+streamlit run https://raw.githubusercontent.com/soham-98/unilyx-ML-App/master/unilyx.py
