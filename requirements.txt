@@ -1,0 +1,9 @@
+pandas==1.1.0
+matplotlib==3.2.1
+streamlit==0.64.0
+seaborn==0.10.1
+plotly-express==0.4.1
+scikit-learn==0.22.2
+pybase64==1.0.1
+random2==1.0.1
+ppscore==0.0.2
