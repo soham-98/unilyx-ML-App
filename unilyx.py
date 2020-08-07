@@ -53,7 +53,7 @@ usage_guidelines="""
 
 **Kindly reload the tab once before uploading a file. (Right-click > Reload)**
 
-- File Format: The app supports only .csv format. Max upload size is capped at 50 MB.
+- File Format: The app supports only .csv format. Max upload size is capped at 200 MB.
 
 - Left Panel: Left Panel will populate after the upload is complete. While the app is capable of simultaneously executing the multiple left panel selections, using them one-by-one will be memory-efficient and will generally yield faster results.
 
