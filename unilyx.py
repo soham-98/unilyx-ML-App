@@ -27,6 +27,7 @@ import ppscore as pps
 import random
 import base64
 pd.options.display.float_format = "{:.2f}".format
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 # In[ ]:
