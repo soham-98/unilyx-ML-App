@@ -125,7 +125,7 @@ pred_label_same_warning = ':exclamation: predictors and label cannot be same. Pl
 # In[ ]:
 
 
-uploaded_file = st.file_uploader(type="csv")
+uploaded_file = st.file_uploader(label="Upload a file",type="csv")
 if uploaded_file is not None:
     my_placeholder.empty()
     my_placeholder_1.empty()
