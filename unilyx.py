@@ -27,6 +27,7 @@ import ppscore as pps
 import random
 import base64
 pd.options.display.float_format = "{:.2f}".format
+st.beta_set_page_config(page_title="Unilyx ML App", page_icon="zap", layout='centered', initial_sidebar_state='auto')
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
@@ -36,8 +37,9 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 h1="<img src='data:image/png;base64,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' class='img-fluid'>"
 st.markdown(h1,unsafe_allow_html=True)
 #st.title('Unilyx')
-st.subheader('An interactive ML app')
-st.markdown('Created with :heart: by Soham Kulkarni')
+st.subheader(f":zap: A blazingly fast, intuitive ML app")
+credits = 'Created with :heart: by <a href="https://www.linkedin.com/in/sohamkulkarni98/" target="_blank">Soham Kulkarni</a>'
+st.markdown(credits,unsafe_allow_html=True)
 my_placeholder=st.empty()
 intro_text = """     
              Unilyx is an interactive app that enables on the fly data exploration
