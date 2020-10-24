@@ -31,6 +31,7 @@ st.beta_set_page_config(page_title="Unilyx ML App", page_icon="zap", layout='cen
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
+
 # In[ ]:
 
 
@@ -40,9 +41,10 @@ st.markdown(h1,unsafe_allow_html=True)
 st.subheader(f":zap: A blazingly fast, intuitive ML app")
 credits = 'Created with :heart: by <a href="https://www.linkedin.com/in/sohamkulkarni98/" target="_blank">Soham Kulkarni</a>'
 st.markdown(credits,unsafe_allow_html=True)
+
 my_placeholder=st.empty()
 intro_text = """     
-             Unilyx is an interactive app that enables on the fly data exploration
+             Unilyx is a no-code solution that enables on the fly data exploration
              and lets you run various ML models within a browser. It runs a python backend 
              and employs streamlit API for ease of use.
 
@@ -51,8 +53,6 @@ intro_text = """
 my_placeholder.info(intro_text)
 my_placeholder_1=st.empty()
 usage_guidelines="""
-<details>
-<summary><b>Usage Guidelines</b></summary>
 
 **Kindly reload the tab once before uploading a file. (Right-click > Reload)**
 
@@ -87,8 +87,9 @@ about_pps="""
 
 </details>
 """
-path_warning = ":exclamation: Export unsuccessful. Make sure you've entered the correct path and file name"
-my_placeholder_1.markdown(usage_guidelines, unsafe_allow_html=True)
+path_warning = 'Export unsuccessful! :disappointed: Please <a href="https://raw.githubusercontent.com/soham-98/unilyx-ML-App/master/unilyx.py" target="_blank">download the script</a> and run it on your local machine to avail the download functionality.'
+with my_placeholder_1.beta_expander("Usage Guidelines"):
+    st.markdown(usage_guidelines,unsafe_allow_html=True)
 my_placeholder_2=st.empty()
 my_placeholder_2.markdown("")
 
@@ -122,13 +123,13 @@ download_note="""
                 </i></small>
               """
 
-pred_label_same_warning = ':exclamation: predictors and label cannot be same. Please check your selections.'
+pred_label_same_warning = ':exclamation: predictors and label cannot be the same. Please check your selections.'
 
 
 # In[ ]:
 
 
-uploaded_file = st.file_uploader(label="Upload a data file",type="csv")
+uploaded_file = st.file_uploader(label="Kindly reload your tab once and upload a data file",type="csv")
 if uploaded_file is not None:
     my_placeholder.empty()
     my_placeholder_1.empty()
@@ -360,7 +361,7 @@ if uploaded_file is not None:
                                             st.success("Export Successful!")
                                             st.write(f"Exported to  {exp_path}")
                                         except:
-                                            st.error(path_warning)
+                                            st.markdown(path_warning,unsafe_allow_html=True)
                         elif regression_model == 'Ridge Regression':
                             if st.checkbox("Run the Ridge Regression"):
                                 X=df[predictors]
@@ -398,7 +399,7 @@ if uploaded_file is not None:
                                             st.success("Export Successful!")
                                             st.write(f"Exported to  {exp_path}")
                                         except:
-                                            st.error(path_warning)
+                                            st.markdown(path_warning,unsafe_allow_html=True)
                         elif regression_model == 'LassoLARS':
                             if st.checkbox("Run the LassoLARS"):
                                 X=df[predictors]
@@ -436,7 +437,7 @@ if uploaded_file is not None:
                                             st.success("Export Successful!")
                                             st.write(f"Exported to  {exp_path}")
                                         except:
-                                            st.error(path_warning)
+                                            st.markdown(path_warning,unsafe_allow_html=True)
                         else:
                             pass
                     else:
@@ -490,7 +491,7 @@ if uploaded_file is not None:
                                             st.success("Export Successful!")
                                             st.write(f"Exported to  {exp_path}")
                                         except:
-                                            st.error(path_warning)
+                                            st.markdown(path_warning,unsafe_allow_html=True)
                         elif classification_model == 'Logistic Regression':
                             if st.checkbox("Run the Logistic Regression and evaluate the results"):
                                 with st.spinner(random.choice(graph_loding_messages)):
@@ -540,7 +541,7 @@ if uploaded_file is not None:
                                             st.success("Export Successful!")
                                             st.write(f"Exported to  {exp_path}")
                                         except:
-                                            st.error(path_warning)
+                                            st.markdown(path_warning,unsafe_allow_html=True)
                         elif classification_model == 'Support Vector Machine':
                             if st.checkbox("Run the Support Vector Classifier and evaluate the results"):
                                 with st.spinner(random.choice(graph_loding_messages)):
@@ -590,7 +591,7 @@ if uploaded_file is not None:
                                             st.success("Export Successful!")
                                             st.write(f"Exported to  {exp_path}")
                                         except:
-                                            st.error(path_warning)
+                                            st.markdown(path_warning,unsafe_allow_html=True)
                         elif classification_model == 'Naive Bayes Classifier':
                             if st.checkbox("Run the Naive Bayes Classifier and evaluate the results"):
                                 with st.spinner(random.choice(graph_loding_messages)):
@@ -640,7 +641,7 @@ if uploaded_file is not None:
                                             st.success("Export Successful!")
                                             st.write(f"Exported to  {exp_path}")
                                         except:
-                                            st.error(path_warning)
+                                            st.markdown(path_warning,unsafe_allow_html=True)
                         elif classification_model == 'Multilayer perceptron':
                             if st.checkbox("Run the Multilayer perceptron and evaluate the results"):
                                 with st.spinner(random.choice(graph_loding_messages)):
@@ -693,7 +694,7 @@ if uploaded_file is not None:
                                             st.success("Export Successful!")
                                             st.write(f"Exported to  {exp_path}")
                                         except:
-                                            st.error(path_warning)
+                                            st.markdown(path_warning,unsafe_allow_html=True)
                         else:
                             st.write("Make a selection")
                 elif choice == 'Use a different validation file':
@@ -748,7 +749,7 @@ if uploaded_file is not None:
                                             st.success("Export Successful!")
                                             st.write(f"Exported to  {exp_path}")
                                         except:
-                                            st.error(path_warning)
+                                            st.markdown(path_warning,unsafe_allow_html=True)
                             elif regression_model == 'Ridge Regression':
                                 if st.checkbox("Run the Ridge Regression"):
                                     X_train=df[predictors]
@@ -787,7 +788,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)   
+                                                st.markdown(path_warning,unsafe_allow_html=True)   
                             elif regression_model == 'LassoLARS':
                                 if st.checkbox("Run the LassoLARS"):
                                     X_train=df[predictors]
@@ -826,7 +827,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)         
+                                                st.markdown(path_warning,unsafe_allow_html=True)         
                         else:
                             classification_model=st.selectbox("Choose a classification model",['RandomForestClassifier','Logistic Regression','Support Vector Machine','Naive Bayes Classifier','Multilayer perceptron'])
                             if classification_model == 'RandomForestClassifier':
@@ -879,7 +880,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                             elif classification_model == 'Logistic Regression':
                                 if st.checkbox("Run the Logistic Regression and evaluate the results"):
                                     with st.spinner(random.choice(graph_loding_messages)):
@@ -930,7 +931,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                             elif classification_model == 'Support Vector Machine':
                                 if st.checkbox("Run the Support Vector Classifier and evaluate the results"):
                                     with st.spinner(random.choice(graph_loding_messages)):
@@ -981,7 +982,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                             elif classification_model == 'Naive Bayes Classifier':
                                 if st.checkbox("Run the Naive Bayes Classifier and evaluate the results"):
                                     with st.spinner(random.choice(graph_loding_messages)):
@@ -1032,7 +1033,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                             elif classification_model == 'Multilayer perceptron':
                                 st.warning(':point_right: This is a neural network based classifier. The parameters must be correctly chosen to get the relevent results.')
                                 if st.checkbox("Run the Multilayer perceptron and evaluate the results"):
@@ -1086,7 +1087,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                     else:
                         text1 = """                        Upload a validation file to proceed. The existing data file will be treated as train data.
                         Everything is run locally and the data you upload never leaves your system.
@@ -1136,7 +1137,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                             if regression_model == 'Ridge Regression':
                                 if st.checkbox("Run the Ridge Regression"):
                                     X_train=df[predictors]
@@ -1167,7 +1168,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                             if regression_model == 'LassoLARS':
                                 if st.checkbox("Run the LassoLARS"):
                                     X_train=df[predictors]
@@ -1198,7 +1199,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)            
+                                                st.markdown(path_warning,unsafe_allow_html=True)           
                         else:
                             classification_model=st.selectbox("Choose a classification model",['RandomForestClassifier','Logistic Regression','Support Vector Machine','Naive Bayes Classifier','Multilayer perceptron'])
                             if classification_model == 'RandomForestClassifier':
@@ -1226,7 +1227,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                             elif classification_model == 'Logistic Regression':
                                 if st.checkbox("Run the Logistic Regression and display the results"):
                                     with st.spinner(random.choice(graph_loding_messages)):
@@ -1252,7 +1253,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                             elif classification_model == 'Support Vector Machine':
                                 if st.checkbox("Run the Support Vector Classifier and display the results"):
                                     with st.spinner(random.choice(graph_loding_messages)):
@@ -1278,7 +1279,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                             elif classification_model == 'Naive Bayes Classifier':
                                 if st.checkbox("Run the Naive Bayes Classifier and display the results"):
                                     with st.spinner(random.choice(graph_loding_messages)):
@@ -1304,7 +1305,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)
+                                                st.markdown(path_warning,unsafe_allow_html=True)
                             elif classification_model == 'Multilayer perceptron':
                                 st.warning(':point_right: This is a neural network based classifier. The parameters must be correctly chosen to get the relevent results.')
                                 if st.checkbox("Run the Multilayer perceptron and display the results"):
@@ -1333,7 +1334,7 @@ if uploaded_file is not None:
                                                 st.success("Export Successful!")
                                                 st.write(f"Exported to  {exp_path}")
                                             except:
-                                                st.error(path_warning)          
+                                                st.markdown(path_warning,unsafe_allow_html=True)          
                     else:
                         text2 = """                        Upload a file to proceed for which you want to make predictions. The existing file will be treated as train data.
                         Everything is run locally and the data you upload never leaves your system.
@@ -1398,7 +1399,7 @@ if uploaded_file is not None:
                                             st.success("Export Successful!")
                                             st.write(f"Exported to  {exp_path}")
                                         except:
-                                            st.error(path_warning)
+                                            st.markdown(path_warning,unsafe_allow_html=True)
                     if eval_type == 'continuous values':
                         if st.checkbox("Find feature importance using Random Forest Regressor"):
                             with st.spinner(":hammer_and_wrench: Yes there really are magic elves with an abacus working frantically in here, give'em some time"):
@@ -1464,7 +1465,7 @@ if uploaded_file is not None:
                                 st.success("Export Successful!")
                                 st.write(f"Exported to  {exp_path}")
                             except:
-                                st.error(path_warning)
+                                st.markdown(path_warning,unsafe_allow_html=True)
                 elif modeltype_1 == 'LDA':
                     st.warning(":point_right: Make sure that the label contains **discrete values/classes**, else the LDA won't run")
                     if st.checkbox("Run the Linear Discriminant Analysis and display the results"):
@@ -1497,7 +1498,7 @@ if uploaded_file is not None:
                                 st.success("Export Successful!")
                                 st.write(f"Exported to  {exp_path}")
                             except:
-                                st.error(path_warning)
+                                st.markdown(path_warning,unsafe_allow_html=True)
             else:
                 text5 = """                        :exclamation: The dimensionality reduction can't be performed since the data contains NULL/Nan values.
                         
@@ -1511,3 +1512,4 @@ else:
 
 
 # In[ ]:
+
