@@ -138,6 +138,7 @@ if uploaded_file is not None:
     def get_data():
         return pd.read_csv(uploaded_file)
     df = get_data()
+    st.write("")
     rowcol = f"The uploaded file has {df.shape[0]} rows and {df.shape[1]} columns."
     st.write(rowcol)
     default_pred_list=list(df.select_dtypes(include='number').columns)
