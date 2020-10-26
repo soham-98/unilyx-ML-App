@@ -147,8 +147,11 @@ if uploaded_file is not None:
     Categorical_Columns=list(df.select_dtypes(include='object').columns)
     Null_Checker=sum(df.isnull().sum())
     pred_list = list(predictors)
-    pred_label_checker = [value for value in pred_list if value in label] 
-    if st.sidebar.checkbox('Run data validation checks'):
+    pred_label_checker = [value for value in pred_list if value in label]
+    sidebar_options = ['Run data validation checks','Perform exploratory data analysis','Run ML models',
+                       'Evaluate feature importance','Perform data dimensionality reduction']
+    left_panel=st.sidebar.radio("",sidebar_options)
+    if left_panel =='Run data validation checks':
         if len(pred_label_checker)==0:
             if st.checkbox('Show the complete data'):
                 with st.spinner(':exclamation: Please wait. This may take a while to load'):
@@ -178,7 +181,7 @@ if uploaded_file is not None:
                     pass
         else:
             st.warning(pred_label_same_warning)        
-    if st.sidebar.checkbox('Perform exploratory data analysis'):
+    if left_panel == 'Perform exploratory data analysis':
         if len(pred_label_checker)==0:
             st.markdown("")
             st.write('Basic statistical summary',df.describe().transpose())
@@ -312,7 +315,7 @@ if uploaded_file is not None:
                     st.write('please make a selection')
         else:
             st.warning(pred_label_same_warning)          
-    if st.sidebar.checkbox('Run ML models'):
+    if left_panel == 'Run ML models':
         if len(pred_label_checker)==0:
             X=df[predictors]
             y=df[label]
@@ -1350,7 +1353,7 @@ if uploaded_file is not None:
                 st.write(null_df_model.sort_values(by='Null Count',ascending=False))
         else:
             st.warning(pred_label_same_warning)            
-    if st.sidebar.checkbox('Evaluate feature importance'):
+    if left_panel == 'Evaluate feature importance':
         if len(pred_label_checker)==0:
             X=df[predictors]
             y=df[label]
@@ -1426,7 +1429,7 @@ if uploaded_file is not None:
                 st.write(null_df_feat_imp.sort_values(by='Null Count',ascending=False))
         else:
             st.warning(pred_label_same_warning)        
-    if st.sidebar.checkbox('Perform data dimensionality reduction'):
+    if left_panel == 'Perform data dimensionality reduction':
         if len(pred_label_checker)==0:
             X=df[predictors]
             y=df[label]
