@@ -1,4 +1,4 @@
-# unilyx-ML-App
+# unilyx-ML-App [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/soham-98/unilyx-ml-app/unilyx.py)
 
 ⚡ A blazingly fast, no-code ML app
 
