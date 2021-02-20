@@ -27,7 +27,7 @@ import ppscore as pps
 import random
 import base64
 pd.options.display.float_format = "{:.2f}".format
-st.set_page_config(page_title="Unilyx ML App", page_icon="zap", layout='centered', initial_sidebar_state='auto')
+st.beta_set_page_config(page_title="Unilyx ML App", page_icon="zap", layout='centered', initial_sidebar_state='auto')
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
